@@ -78,7 +78,7 @@
             <label for="volume">Volume:</label>
             <input type="range" id="volume" name="volume" min="0" max="1" step="0.1" value="0.5">
             <audio id="alarm">
-                <source src="PASTE THE LINK TO YOUR ALARM AUDIO FILE HERE" type="audio/mpeg">
+                <source src="https://github.com/lexischarmer/notion_snippets2/blob/main/magic-mallet-6262.mp3?raw=true" type="audio/mpeg">
             </audio>
         </div>
 	</div>
