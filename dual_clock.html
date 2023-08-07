@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Digital Clock</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    #clock-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .clock {
+      font-size: 2rem;
+      margin: 0 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="clock-container">
+    <div class="clock" id="sf-clock">San Francisco: <span id="sf-time"></span></div>
+    <div class="clock" id="london-clock">London: <span id="london-time"></span></div>
+  </div>
+
+  <script>
+    function updateTime() {
+      const sfTimeElement = document.getElementById('sf-time');
+      const londonTimeElement = document.getElementById('london-time');
+
+      const sfTime = new Date().toLocaleTimeString('en-US', { timeZone: 'America/Los_Angeles' });
+      const londonTime = new Date().toLocaleTimeString('en-GB', { timeZone: 'Europe/London' });
+
+      sfTimeElement.textContent = sfTime;
+      londonTimeElement.textContent = londonTime;
+    }
+
+    updateTime(); // Initial call
+    setInterval(updateTime, 1000); // Update every second
+  </script>
+</body>
+</html>
