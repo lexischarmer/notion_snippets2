@@ -1,62 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<title>World Clock</title>
-  <style>
-		body {
-			background-color: #d7bfdc;
-			padding-left: 2.5rem;
-			padding-right: 2.5rem;
-			padding-top: 0rem;
-			padding-bottom: 0rem;
-		}
-
-		.clock {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: flex-start;
-			height: 100vh;
-			overflow: hidden;
-		}
-
-		h1 {
-			font-size: 5rem;
-			font-weight: bold;
-			color: white;
-			margin-top: 0.15rem;
-			margin-bottom: 0.15rem;
-		}
-
+  <meta charset="UTF-8">
+  <title>Digital Clock</title>
+  <!--Referencing a CSS Style Sheet-->
+  <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
-const clocks = document.getElementsByClassName("clock");
-
-function updateClocks() {
-  for (let clock of clocks) {
-    let timezone = clock.dataset.timezone;
-    let time = new Date().toLocaleTimeString("en-US", {
-      hour: '2-digit',
-      minute:'2-digit',
-      timeZone: timezone
-    });
-    clock.textContent = time;
-  }
-}
-
-// Update every minute:
-setInterval(updateClocks, 60000);
-updateClocks();
-
-	  .clock {
-   font-family: sans-serif;
-   border: thin solid;
-   border-radius: 10px;
-   padding: 5px;
-}
-	  
-<p>New York: <span class="clock" data-timezone="America/New_York"></span></p>
-<p>Shanghai: <span class="clock" data-timezone="Asia/Shanghai"></span></p>
-<p>Berlin: <span class="clock" data-timezone="Europe/Berlin"></span></p>
+  <!--Creating a small container for the clock to stay in-->
+  <div class="container">
+    <div class="clock"></div>
+  </div>
+ <script  src="./script.js"></script>
 </body>
+
 </html>
