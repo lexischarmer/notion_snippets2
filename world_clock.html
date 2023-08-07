@@ -30,46 +30,33 @@
 
 </head>
 <body>
-<p class="clock" timezone="+2"></p>
-<p class="clock" timezone="+4"></p>
-<p class="clock" timezone="-7"></p>
+const clocks = document.getElementsByClassName("clock");
 
-<script>
-function dateToText(date) {
-    var hours = date.getHours()
-    var minutes = date.getMinutes();
-    // var seconds = date.getSeconds();
-    if (minutes < 10) minutes = '0'+minutes;
-    //if  seconds < 10) seconds = '0'+seconds;
-    if (hours < 10) hours = '0'+hours;
-    return hours + ":" + minutes; // + ":" + seconds;
-}
 function updateClocks() {
-	for (var i = 0; i < window.arrClocks.length; i++) {
-		var clock = window.arrClocks[i];
-		var offset = window.arrOffsets[i];
-		clock.innerHTML = dateToText(new Date(new Date().getTime()+offset));
-	}
+  for (let clock of clocks) {
+    let timezone = clock.dataset.timezone;
+    let time = new Date().toLocaleTimeString("en-US", {
+      hour: '2-digit',
+      minute:'2-digit',
+      timeZone: timezone
+    });
+    clock.textContent = time;
+  }
 }
-function startClocks() {
-	clockElements = document.getElementsByClassName('clock');
-	window.arrClocks = []
-	window.arrOffsets = [];
-	var j = 0;
-	for(var i = 0; i < clockElements.length; i++) {
-		el = clockElements[i];
-		timezone = parseInt(el.getAttribute('timezone'));
-		if (!isNaN(timezone)) {
-			var tzDifference = timezone * 60 + (new Date()).getTimezoneOffset();
-			var offset = tzDifference * 60 * 1000;
-			window.arrClocks.push(el);
-			window.arrOffsets.push(offset);
-		}
-	}
-	updateClocks();
-	clockID = setInterval(updateClocks, 1000);
+
+// Update every minute:
+setInterval(updateClocks, 60000);
+updateClocks();
+
+	  .clock {
+   font-family: sans-serif;
+   border: thin solid;
+   border-radius: 10px;
+   padding: 5px;
 }
-setTimeout(startClocks, 100);
-</script>
+	  
+<p>New York: <span class="clock" data-timezone="America/New_York"></span></p>
+<p>Shanghai: <span class="clock" data-timezone="Asia/Shanghai"></span></p>
+<p>Berlin: <span class="clock" data-timezone="Europe/Berlin"></span></p>
 </body>
 </html>
