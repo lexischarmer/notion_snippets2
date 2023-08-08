@@ -16,17 +16,19 @@
   background-color: #add8e6;
 }
 
-#clock-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-}
-
 .clock {
   font-size: 2rem;
   margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align text to the left */
 }
+
+.clock span {
+  display: flex;
+  justify-content: flex-end; /* Align time to the right */
+}
+    
   </style>
 </head>
 <body>
