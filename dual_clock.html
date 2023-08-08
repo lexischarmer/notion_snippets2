@@ -30,8 +30,10 @@
       const sfTimeElement = document.getElementById('sf-time');
       const londonTimeElement = document.getElementById('london-time');
 
-      const sfTime = new Date().toLocaleTimeString('en-US', { timeZone: 'America/Los_Angeles' });
-      const londonTime = new Date().toLocaleTimeString('en-GB', { timeZone: 'Europe/London' });
+      const timeOptions = { hour: 'numeric', minute: 'numeric' };
+
+      const sfTime = new Date().toLocaleTimeString('en-US', timeOptions, { timeZone: 'America/Los_Angeles' });
+      const londonTime = new Date().toLocaleTimeString('en-GB', timeOptions, { timeZone: 'Europe/London' });
 
       sfTimeElement.textContent = sfTime;
       londonTimeElement.textContent = londonTime;
