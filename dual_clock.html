@@ -40,20 +40,20 @@
 
   <script>
     function updateTime() {
-      const sfTimeElement = document.getElementById('sf-time');
-      const londonTimeElement = document.getElementById('london-time');
+  const sfTimeElement = document.getElementById('sf-time');
+  const londonTimeElement = document.getElementById('london-time');
 
-      const options = { hour: 'numeric', minute: 'numeric', hour12: true };
+  const options = { hour: 'numeric', minute: 'numeric', hour12: true };
 
-      const sfTime = new Date().toLocaleTimeString('en-US', options, { timeZone: 'America/Los_Angeles' });
-      const londonTime = new Date().toLocaleTimeString('en-GB', options, { timeZone: 'Europe/London' });
+  const sfTime = new Date().toLocaleTimeString('en-US', options, { timeZone: 'America/Los_Angeles' });
+  const londonTime = new Date().toLocaleTimeString('en-GB', options, { timeZone: 'Europe/London' });
 
-      sfTimeElement.textContent = sfTime;
-      londonTimeElement.textContent = londonTime;
-    }
+  sfTimeElement.textContent = sfTime;
+  londonTimeElement.textContent = londonTime;
+}
 
-    updateTime(); // Initial call
-    setInterval(updateTime, 1000); // Update every second
+updateTime(); // Initial call
+setInterval(updateTime, 1000);
   </script>
 </body>
 </html>  
