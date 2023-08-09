@@ -26,16 +26,7 @@
         }
     </style>
 </head>
-<body>
-    <h1>Current Time</h1>
-    <div class="location">
-        <p>San Francisco</p>
-        <p>London</p>
-    </div>
-    <div class="time">
-        <p id="sfTime"></p>
-        <p id="londonTime"></p>
-    </div>
+
 
     <script>
         function updateTimes() {
@@ -50,14 +41,31 @@
             const sfTime = new Date(currentTime.getTime() + sfOffset * 60 * 60 * 1000);
             const londonTime = new Date(currentTime.getTime() + londonOffset * 60 * 60 * 1000);
 
+
+            // Format times to show hours and minutes only
+            const sfFormattedTime = sfTime.toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric' });
+            const londonFormattedTime = londonTime.toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric' });
+
             // Display times
-            document.getElementById("sfTime").textContent = "San Francisco: " + sfTime.toLocaleTimeString();
-            document.getElementById("londonTime").textContent = "London: " + londonTime.toLocaleTimeString();
+            document.getElementById("sfTime").textContent = sfFormattedTime;
+            document.getElementById("londonTime").textContent = londonFormattedTime;
         }
 
         // Update times initially and set interval for updating every second
         updateTimes();
         setInterval(updateTimes, 1000);
     </script>
+</head>
+<body>
+    <h1>Current Time</h1>
+    <div class="location">
+        <p>San Francisco:</p>
+        <p>London:</p>
+    </div>
+    <div class="time">
+        <p id="sfTime"></p>
+        <p id="londonTime"></p>
+    </div>
 </body>
 </html>
+
