@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Current Time in San Francisco and London</title>
+    <style>
+        body {
+            font-family: Helvetica, Arial, sans-serif; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: left;
+            height: 100vh;
+            margin: 0;
+            background-color: #add8e6;
+        }
+    </style>
+    <script>
+        function updateTimes() {
+            // Get current time
+            const currentTime = new Date();
+
+            // Calculate time zone offsets for San Francisco and London
+            const sfOffset = -7; // San Francisco is UTC-7 (considering daylight saving time)
+            const londonOffset = 1; // London is UTC+1 (considering daylight saving time)
+
+            // Calculate San Francisco and London times
+            const sfTime = new Date(currentTime.getTime() + sfOffset * 60 * 60 * 1000);
+            const londonTime = new Date(currentTime.getTime() + londonOffset * 60 * 60 * 1000);
+
+            // Display times
+            document.getElementById("sfTime").textContent = "San Francisco: " + sfTime.toLocaleTimeString();
+            document.getElementById("londonTime").textContent = "London: " + londonTime.toLocaleTimeString();
+        }
+
+        // Update times initially and set interval for updating every second
+        updateTimes();
+        setInterval(updateTimes, 1000);
+    </script>
+</head>
+<body>
+    <h1>Current Time</h1>
+    <p id="sfTime"></p>
+    <p id="londonTime"></p>
+</body>
+</html>
