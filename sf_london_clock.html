@@ -12,13 +12,30 @@
             height: 100vh;
             margin: 0;
             background-color: #add8e6;
+            color: #808080; 
+            font-size: 18px; 
+        }
+
+            .location {
+            text-align: left; /* Left-align city names */
+        }
+
+        .time {
+            text-align: right; /* Right-align times */
+            font-weight: bold; /* Make the times bold for emphasis */
         }
     </style>
 </head>
 <body>
     <h1>Current Time</h1>
-    <p id="sfTime"></p>
-    <p id="londonTime"></p>
+    <div class="location">
+        <p>San Francisco</p>
+        <p>London</p>
+    </div>
+    <div class="time">
+        <p id="sfTime"></p>
+        <p id="londonTime"></p>
+    </div>
 
     <script>
         function updateTimes() {
