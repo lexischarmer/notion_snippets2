@@ -4,19 +4,13 @@
     <title>Current Time in San Francisco and London</title>
     <style>
         body {
-            font-family: Helvetica, Arial, sans-serif; 
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: left;
-            height: 100vh;
-            margin: 0;
-            background-color: #add8e6;
-            color: #808080; 
-            font-size: 18px; 
+            background-color: #add8e6; /* Blue background */
+            color: #48494b; /* Gray text color */
+            font-family: Arial, sans-serif;
+            font-size: 18px; /* Font size for body text */
         }
-
-            .location {
+        
+        .location {
             text-align: left; /* Left-align city names */
         }
 
@@ -24,11 +18,20 @@
             text-align: right; /* Right-align times */
             font-weight: bold; /* Make the times bold for emphasis */
         }
+
+        /* Optionally, you can style the <p> elements separately */
+        p {
+            font-size: 16px; /* Change font size for paragraphs */
+            margin: 5px 0; /* Add some spacing between paragraphs */
+        }
     </style>
-</head>
-
-
     <script>
+        function formatTime(date) {
+            const hours = date.getUTCHours().toString().padStart(2, '0');
+            const minutes = date.getUTCMinutes().toString().padStart(2, '0');
+            return hours + ':' + minutes;
+        }
+
         function updateTimes() {
             // Get current UTC time
             const currentUTCTime = new Date();
@@ -42,8 +45,8 @@
             const londonUTCTime = new Date(currentUTCTime.getTime() + londonOffset * 60 * 60 * 1000);
 
             // Format UTC times to show hours and minutes only
-            const sfFormattedUTCTime = sfUTCTime.getUTCHours() + ':' + sfUTCTime.getUTCMinutes();
-            const londonFormattedUTCTime = londonUTCTime.getUTCHours() + ':' + londonUTCTime.getUTCMinutes();
+            const sfFormattedUTCTime = formatTime(sfUTCTime);
+            const londonFormattedUTCTime = formatTime(londonUTCTime);
 
             // Display UTC times
             document.getElementById("sfTime").textContent = sfFormattedUTCTime;
@@ -56,6 +59,7 @@
     </script>
 </head>
 <body>
+    <h1>Current Time</h1>
     <div class="location">
         <p>San Francisco</p>
         <p>London</p>
@@ -66,4 +70,3 @@
     </div>
 </body>
 </html>
-
