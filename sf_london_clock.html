@@ -38,7 +38,7 @@
       const sfTimeElem = document.getElementById('sf-time');
       const londonTimeElem = document.getElementById('london-time');
 
-      const options = { hour: 'numeric', minute: 'numeric', hour12: false };
+      const options = { hour: 'numeric', minute: 'numeric', hour12: true};
 
       const sfTime = new Date().toLocaleTimeString('en-US', { ...options, timeZone: 'America/Los_Angeles' });
       const londonTime = new Date().toLocaleTimeString('en-GB', { ...options, timeZone: 'Europe/London' });
