@@ -47,8 +47,8 @@
 
       const options = { hour: 'numeric', minute: 'numeric', hour12: true, caseFirst: 'lower'};
 
-      const sfTime = new Date().toLocaleTimeString('en-US', { ...options, timeZone: 'America/Los_Angeles' }).toLowerCase();
-      const londonTime = new Date().toLocaleTimeString('en-GB', { ...options, timeZone: 'Europe/London' }).toLowerCase();
+      const sfTime = formatTime(new Date().toLocaleTimeString('en-US', { ...options, timeZone: 'America/Los_Angeles' }));
+      const londonTime = formatTime(new Date().toLocaleTimeString('en-GB', { ...options, timeZone: 'Europe/London' }));
 
       sfTimeElem.textContent = sfTime;
       londonTimeElem.textContent = londonTime;
