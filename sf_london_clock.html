@@ -21,15 +21,24 @@
     width: 100%;
     margin-bottom: 10px;
   }
+  .city {
+    flex-grow: 1; /* Allow city name to expand and push time to the right */
+    text-align: left; /* Align city name to the left */
+  }
+  .time {
+    text-align: right; /* Align time to the right */
+  }
 </style>
 </head>
 <body>
   <div class="time-container">
     <div class="time-box">
-      <p><strong>San Francisco</strong> <span id="sf-time"></span></p>
+      <p class="city"><strong>San Francisco:</strong></p>
+      <p class="time"><span id="sf-time"></span></p>
     </div>
     <div class="time-box">
-      <p><strong>London</strong> <span id="london-time"></span></p>
+      <p class="city"><strong>London:</strong></p>
+      <p class="time"><span id="london-time"></span></p>
     </div>
   </div>
 
