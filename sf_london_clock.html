@@ -22,8 +22,8 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
+    margin-bottom: 0; /* Adjust the margin to control vertical spacing */
     padding: 0;
-    margin-bottom: 0;
   }
   .city {
     text-align: left;
@@ -42,7 +42,11 @@
       <p class="city">San Francisco</p>
       <p class="time"><span id="sf-time"></span></p>
     </div>
-      <div class="time-box">
+    <div class="time-box">
+      <p class="city">Denver</p>
+      <p class="time"><span id="denver-time"></span></p>
+    </div>
+    <div class="time-box">
       <p class="city">London</p>
       <p class="time"><span id="london-time"></span></p>
     </div>
@@ -58,14 +62,17 @@
     
     function updateTimes() {
       const sfTimeElem = document.getElementById('sf-time');
+      const denverTimeElem = document.getElementById('denver-time');
       const londonTimeElem = document.getElementById('london-time');
 
       const options = { hour: 'numeric', minute: 'numeric', hour12: true, caseFirst: 'lower'};
 
       const sfTime = formatTime(new Date().toLocaleTimeString('en-US', { ...options, timeZone: 'America/Los_Angeles' }));
+      const denverTime = formatTime(new Date().toLocaleTimeString('en-US', { ...options, timeZone: 'America/Denver' }));
       const londonTime = formatTime(new Date().toLocaleTimeString('en-GB', { ...options, timeZone: 'Europe/London' }));
 
       sfTimeElem.textContent = sfTime;
+      denverTimeElem.textContent = denverTime;
       londonTimeElem.textContent = londonTime;
     }
 
