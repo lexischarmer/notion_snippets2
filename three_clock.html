@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body {
+    font-family: Helvetica, Arial, sans-serif;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #add8e6; /* Replace with your background color hex code */
+    color: #48494b; /* Replace with your text color hex code */
+  }
+  .time-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+  }
+  .city-time {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  .city {
+    text-align: left;
+    font-size: 18px;
+    margin-right: 8px;
+  }
+  .time {
+    text-align: right;
+    font-size: 18px;
+  }
+</style>
+</head>
+<body>
+  <div class="time-container">
+    <div class="city-time">
+      <p class="city">San Francisco</p>
+      <p class="time"><span id="sf-time"></span></p>
+    </div>
+    <div class="city-time">
+      <p class="city">Denver</p>
+      <p class="time"><span id="denver-time"></span></p>
+    </div>
+    <div class="city-time">
+      <p class="city">London</p>
+      <p class="time"><span id="london-time"></span></p>
+    </div>
+  </div>
+
+  <script>
+    function formatTime(timeString) {
+      const parts = timeString.split(' ');
+      const time = parts[0];
+      const period = parts[1].toLowerCase();
+      return `${time} ${period}`;
+    }
+    
+    function updateTimes() {
+      const sfTimeElem = document.getElementById('sf-time');
+      const denverTimeElem = document.getElementById('denver-time');
+      const londonTimeElem = document.getElementById('london-time');
+
+      const options = { hour: 'numeric', minute: 'numeric', hour12: true, caseFirst: 'lower'};
+
+      const sfTime = formatTime(new Date().toLocaleTimeString('en-US', { ...options, timeZone: 'America/Los_Angeles' }));
+      const denverTime = formatTime(new Date().toLocaleTimeString('en-US', { ...options, timeZone: 'America/Denver' }));
+      const londonTime = formatTime(new Date().toLocaleTimeString('en-GB', { ...options, timeZone: 'Europe/London' }));
+
+      sfTimeElem.textContent = sfTime;
+      denverTimeElem.textContent = denverTime;
+      londonTimeElem.textContent = londonTime;
+    }
+
+    updateTimes();
+    setInterval(updateTimes, 1000);
+  </script>
+</body>
+</html>
