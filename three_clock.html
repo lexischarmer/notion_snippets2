@@ -15,20 +15,12 @@
   }
   .time-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: auto auto;
     grid-gap: 10px;
-  }
-  .city-time {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    padding: 0;
-    margin: 0;
   }
   .city {
     text-align: left;
     font-size: 18px;
-    margin-right: 8px;
   }
   .time {
     text-align: right;
@@ -38,15 +30,15 @@
 </head>
 <body>
   <div class="time-container">
-    <div class="city-time">
+    <div>
       <p class="city">San Francisco</p>
       <p class="time"><span id="sf-time"></span></p>
     </div>
-    <div class="city-time">
+    <div>
       <p class="city">Denver</p>
       <p class="time"><span id="denver-time"></span></p>
     </div>
-    <div class="city-time">
+    <div>
       <p class="city">London</p>
       <p class="time"><span id="london-time"></span></p>
     </div>
