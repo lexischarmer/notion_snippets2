@@ -5,41 +5,33 @@
   body {
     font-family: Helvetica, Arial, sans-serif;
     text-align: center;
-    padding: 0px;
+    padding: 0;
     margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #add8e6; /* Replace with your background color hex code */
     color: #48494b; /* Replace with your text color hex code */
-    align-items: center;
   }
-    .time-container {
+  .time-container {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Align city name to the left */
-    /*max-width: 400px;*/
-    margin-top: 0px;
-    margin-right: 0px;
+    align-items: flex-start;
   }
   .time-box {
     display: flex;
-    justify-content: space-between; /* Align time to the right */
+    justify-content: space-between;
     width: 100%;
-    margin-bottom: 0px;
-    margin-top: 0px;
-    margin-right: 0px;
-    padding: 0px;
-  }
+    margin-bottom: 0;
+    padding: 0;
   }
   .city {
-    flex-grow: 2; /* Allow city name to expand and push time to the right */
-    text-align: left; /* Align city name to the left */
+    text-align: left;
     font-size: 18px;
     margin-right: 8px;
   }
   .time {
-    text-align: right; /* Align time to the right */
+    text-align: right;
     font-size: 18px;
   }
 </style>
@@ -50,9 +42,10 @@
       <p class="city">San Francisco</p>
       <p class="time"><span id="sf-time"></span></p>
     </div>
-      <div class="time-box">
+    <div class="time-box">
       <p class="city">London</p>
       <p class="time"><span id="london-time"></span></p>
+    </div>
   </div>
 
   <script>
