@@ -17,13 +17,13 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 0;
   }
-  .time-box {
+  .city-time {
     display: flex;
     justify-content: space-between;
     width: 100%;
     padding: 0;
+    margin: 0;
   }
   .city {
     text-align: left;
@@ -38,16 +38,15 @@
 </head>
 <body>
   <div class="time-container">
-    <div class="time-box">
+    <div class="city-time">
       <p class="city">San Francisco</p>
-      <p class="time"><span id="sf-time"></span></p>
-    </div><div class="time-box">
+      <p class="time"><span id="sf-time"></span></p> </div>
+    <div class="city-time">
       <p class="city">Denver</p>
-      <p class="time"><span id="denver-time"></span></p>
-    </div><div class="time-box">
+      <p class="time"><span id="denver-time"></span></p> </div>
+    <div class="city-time">
       <p class="city">London</p>
-      <p class="time"><span id="london-time"></span></p>
-    </div>
+      <p class="time"><span id="london-time"></span></p> </div>
   </div>
 
   <script>
@@ -79,3 +78,4 @@
   </script>
 </body>
 </html>
+
